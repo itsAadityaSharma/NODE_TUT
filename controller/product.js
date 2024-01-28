@@ -52,7 +52,7 @@ exports.replaceProduct = async (req, res) => {
   }
 };
 
-//PATCH
+//PATCH API
 exports.updateProduct = async (req, res) => {
   const id1 = req.params.id;
   try {
