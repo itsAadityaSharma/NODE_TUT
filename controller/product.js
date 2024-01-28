@@ -1,6 +1,6 @@
 // const fs = require("fs");
 // const index = fs.readFileSync("index.html", "utf-8");
-// 7:22
+
 const model = require("../Model/product");
 const Product = model.Product;
 
@@ -17,7 +17,7 @@ exports.createProduct = (req, res) => {
     });
 };
 
-//GET ALL
+//GET ALL API
 exports.getAllProducts = async (_req, res) => {
   try {
     const products = await Product.find();
@@ -27,7 +27,7 @@ exports.getAllProducts = async (_req, res) => {
   }
 };
 
-//GET ONE
+//GET ONE API
 exports.getOneProduct = async (req, res) => {
   const id1 = req.params.id;
   try {
@@ -38,7 +38,7 @@ exports.getOneProduct = async (req, res) => {
   }
 };
 
-//PUT
+//PUT  API
 
 exports.replaceProduct = async (req, res) => {
   const id1 = req.params.id;
