@@ -1,6 +1,6 @@
 // const fs = require("fs");
 // const index = fs.readFileSync("index.html", "utf-8");
-
+// 7:22
 const model = require("../Model/product");
 const Product = model.Product;
 
@@ -17,7 +17,7 @@ exports.createProduct = (req, res) => {
     });
 };
 
-//GET ALL API
+//GET ALL
 exports.getAllProducts = async (_req, res) => {
   try {
     const products = await Product.find();
@@ -32,6 +32,9 @@ exports.getOneProduct = async (req, res) => {
   const id1 = req.params.id;
   try {
     const products = await Product.findById(id1);
+    if (products === null) {
+      res.status(404).send({ message: "No data found with this Id." });
+    }
     res.json(products);
   } catch (err) {
     res.json(err);
@@ -72,7 +75,7 @@ exports.deleteProduct = async (req, res) => {
     await Product.findOneAndDelete({ _id: id1 }, req.body, {
       new: true,
     });
-    res.status(201).json({ delete: true });
+    res.status(200).json({ delete: true });
   } catch (err) {
     res.status(400).json(err);
   }
