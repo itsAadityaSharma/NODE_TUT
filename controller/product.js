@@ -42,7 +42,6 @@ exports.getOneProduct = async (req, res) => {
 };
 
 //PUT  API
-
 exports.replaceProduct = async (req, res) => {
   const id1 = req.params.id;
   try {
